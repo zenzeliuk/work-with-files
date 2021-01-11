@@ -13,7 +13,7 @@ public class FileManager {
     private static final String SEPARATOR = System.getProperty("file.separator");
     private static final String FILES_DIR = MAIN_DIR + SEPARATOR + "files";
 
-    public static void writeConnectionInfoToFile(ConnectionInfo connectionInfo, String fileName, boolean append) {
+    public synchronized static void writeConnectionInfoToFile(ConnectionInfo connectionInfo, String fileName, boolean append) {
         checkFilesDir();
         String filePath = FILES_DIR + SEPARATOR + fileName;
         try (FileWriter fileWriter = new FileWriter(filePath, append)) {
