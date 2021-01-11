@@ -89,7 +89,7 @@ public class FileManager {
         if (isNotExist(filePath)) {
             throw new RuntimeException("Sorry, can not handle reading");
         }
-        File file = new File(fileName);
+        File file = new File(filePath);
         byte[] bytes = new byte[0];
         try {
             bytes = Files.readAllBytes(file.toPath());
