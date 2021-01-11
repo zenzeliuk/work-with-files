@@ -35,11 +35,17 @@ public class FileManager {
         List<ConnectionInfo> connectionInfoList = readConnectionInfoFromFile(fileName);
         boolean append = false;
         for (ConnectionInfo connectionInfo : connectionInfoList) {
-            if (connectionInfo.getTime() >= timeFrom && connectionInfo.getTime() <=timeTo) {
+            if (connectionInfo.getTime() >= timeFrom && connectionInfo.getTime() <= timeTo) {
                 writeConnectionInfoToFile(connectionInfo, fileName, append);
                 append = true;
             }
         }
+    }
+
+    public static void delete(String fileName) {
+        String filePath = FILES_DIR + SEPARATOR + fileName;
+        File file = new File(filePath);
+        file.delete();
     }
 
 
